@@ -21,8 +21,8 @@ module.exports = {
       fontFamily: {
         robotoRegular: ['Roboto_400Regular', 'sans-serif'],
         robotoBold: ['Roboto_700Bold', 'sans-serif'],
-        bgLight: ['BankGothic_Light', 'sans-serif'],
-        bgMedium: ['BankGothic_Medium', 'sans-serif']
+        bankgothicLight: ['BankGothic_Light', 'sans-serif'],
+        bankgothicMedium: ['BankGothic_Medium', 'sans-serif']
       }
     }
   },
