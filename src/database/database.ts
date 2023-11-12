@@ -1,4 +1,27 @@
-export const database = {
+export interface TrailerDTO {
+  id: string
+  pathImage: any
+  urlVideo: string
+}
+
+export interface ActorDTO {
+  id: string
+  name: string
+  about: string
+  birth: string
+  height: string
+  urlInstagram: string
+  pathImageScreenHome: any
+  pathImageScreenActor: any
+}
+
+interface DatabaseProps {
+  trailers: TrailerDTO[]
+  synopsis: string[]
+  actors: ActorDTO[]
+}
+
+export const database: DatabaseProps = {
   trailers: [
     {
       id: 'trailer1',
@@ -26,7 +49,7 @@ export const database = {
       height: '1,83 m',
       urlInstagram: 'https://www.instagram.com/tomblyth/',
       pathImageScreenHome: require('../assets/images/actors/tom-blith-home.png'),
-      pathImageScreenActor: ''
+      pathImageScreenActor: require('../assets/images/actors/tom-blith-actor.png')
     },
     {
       id: 'rachelzegler',
@@ -37,7 +60,7 @@ export const database = {
       height: '1,57 m',
       urlInstagram: 'https://www.instagram.com/rachelzegler/',
       pathImageScreenHome: require('../assets/images/actors/rachel-zegler-home.png'),
-      pathImageScreenActor: ''
+      pathImageScreenActor: require('../assets/images/actors/rachel-zegler-actor.png')
     },
     {
       id: 'peterdinklage',
@@ -49,7 +72,7 @@ export const database = {
       height: '1,35 m',
       urlInstagram: 'https://www.instagram.com/peterdinklage/',
       pathImageScreenHome: require('../assets/images/actors/peter-dinklage-home.png'),
-      pathImageScreenActor: ''
+      pathImageScreenActor: require('../assets/images/actors/peter-dinklage-actor.png')
     },
     {
       id: 'hunterschafer',
@@ -61,7 +84,7 @@ export const database = {
       height: '1,78 m',
       urlInstagram: 'https://www.instagram.com/hunterschafer',
       pathImageScreenHome: require('../assets/images/actors/hunter-schafer-home.png'),
-      pathImageScreenActor: ''
+      pathImageScreenActor: require('../assets/images/actors/hunter-schafer-actor.png')
     },
     {
       id: 'joshandresriveira',
@@ -72,7 +95,7 @@ export const database = {
       height: '1,82 m',
       urlInstagram: 'https://www.instagram.com/joshandresrivera/',
       pathImageScreenHome: require('../assets/images/actors/josh-andres-riveira-home.png'),
-      pathImageScreenActor: ''
+      pathImageScreenActor: require('../assets/images/actors/josh-andres-riveira-actor.png')
     },
     {
       id: 'jasonschuwartzman',
@@ -84,7 +107,7 @@ export const database = {
       height: '1,68 m',
       urlInstagram: 'https://www.instagram.com/jasonnschwartzman/',
       pathImageScreenHome: require('../assets/images/actors/jason-schuwartzman-home.png'),
-      pathImageScreenActor: ''
+      pathImageScreenActor: require('../assets/images/actors/jason-schuwartzman-actor.png')
     },
     {
       id: 'violadavis',
@@ -96,7 +119,7 @@ export const database = {
       height: '1,65 m',
       urlInstagram: 'https://www.instagram.com/violadavis',
       pathImageScreenHome: require('../assets/images/actors/viola-davis-home.png'),
-      pathImageScreenActor: ''
+      pathImageScreenActor: require('../assets/images/actors/viola-davis-actor.png')
     }
   ]
 }
