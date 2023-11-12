@@ -19,6 +19,7 @@ export function Home() {
 
   const trailers = database.trailers
   const synopsisFirstParagraph = database.synopsis[0]
+  const actors = database.actors
 
   async function handleOpenLink(urlLink: string) {
     const supportedLink = await Linking.canOpenURL(urlLink)
@@ -113,6 +114,32 @@ export function Home() {
               </Text>
             </View>
           </TouchableOpacity>
+        </View>
+
+        <View style={{ gap: 12 }} className="py-6 bg-woodbark-400">
+          <Text className="px-6 font-robotoBold text-xl text-woodbark-900">
+            ATORES
+          </Text>
+
+          <FlatList
+            data={actors}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => (
+              <Card
+                width={240}
+                height={347}
+                image={item.pathImageScreenHome}
+                onPress={() => navigation.navigate('actor', { id: item.id })}
+              />
+            )}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+              paddingLeft: 24,
+              paddingRight: 24,
+              gap: 12
+            }}
+          />
         </View>
       </View>
     </ScrollView>
