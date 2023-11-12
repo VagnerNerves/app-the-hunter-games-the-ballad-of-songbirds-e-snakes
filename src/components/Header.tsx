@@ -2,9 +2,7 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Text,
-  ImageSourcePropType,
-  ScrollView
+  ImageSourcePropType
 } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
@@ -12,12 +10,15 @@ import { useNavigation } from '@react-navigation/native'
 
 import { ArrowCircleLeft } from 'phosphor-react-native'
 
+import { LinearGradient } from 'expo-linear-gradient'
+
 interface HeaderProps {
+  height: number
   image: ImageSourcePropType
   isButtonGoBack?: boolean
 }
 
-export function Header({ image, isButtonGoBack = false }: HeaderProps) {
+export function Header({ height, image, isButtonGoBack = false }: HeaderProps) {
   const navigation = useNavigation()
 
   const insets = useSafeAreaInsets()
@@ -28,7 +29,7 @@ export function Header({ image, isButtonGoBack = false }: HeaderProps) {
   }
 
   return (
-    <View className="w-full h-[345px]">
+    <View style={{ height: height }} className="w-full">
       {isButtonGoBack && (
         <TouchableOpacity
           className="absolute left-6 z-10"
@@ -40,6 +41,11 @@ export function Header({ image, isButtonGoBack = false }: HeaderProps) {
       )}
 
       <Image source={image} className="w-full h-full object-cover" />
+
+      <LinearGradient
+        colors={['transparent', '#251309']}
+        className="absolute bottom-0 w-full h-14"
+      />
     </View>
   )
 }
