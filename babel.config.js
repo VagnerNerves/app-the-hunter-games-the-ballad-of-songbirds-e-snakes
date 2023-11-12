@@ -13,7 +13,8 @@ module.exports = function (api) {
             '@components': './src/components',
             '@routes': './src/routes',
             '@screens': './src/screens',
-            '@database': './src/database'
+            '@database': './src/database',
+            '@utils': './src/utils'
           }
         }
       ]
