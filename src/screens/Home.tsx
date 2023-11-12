@@ -37,7 +37,10 @@ export function Home() {
       className="flex-1"
       contentContainerStyle={{ paddingBottom: 64 }}
     >
-      <Header image={require('../assets/images/header/poster.png')} />
+      <Header
+        height={345}
+        image={require('../assets/images/header/poster.png')}
+      />
 
       <View style={{ gap: 46 }}>
         <View className="mt-[-32px]" style={{ gap: 12 }}>
