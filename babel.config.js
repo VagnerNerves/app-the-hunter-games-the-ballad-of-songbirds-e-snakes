@@ -1,21 +1,22 @@
 module.exports = function (api) {
-  api.cache(true);
+  api.cache(true)
   return {
-    presets: ["babel-preset-expo"],
+    presets: ['babel-preset-expo'],
     plugins: [
-      "nativewind/babel",
+      'nativewind/babel',
       [
-        "module-resolver",
+        'module-resolver',
         {
-          root: ["./src"],
+          root: ['./src'],
           alias: {
-            "@assets": "./src/assets",
-            "@components": "./src/components",
-            "@routes": "./src/routes",
-            "@screens": "./src/screens",
-          },
-        },
-      ],
-    ],
-  };
-};
+            '@assets': './src/assets',
+            '@components': './src/components',
+            '@routes': './src/routes',
+            '@screens': './src/screens',
+            '@database': './src/database'
+          }
+        }
+      ]
+    ]
+  }
+}
