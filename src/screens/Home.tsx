@@ -3,7 +3,6 @@ import {
   View,
   ScrollView,
   FlatList,
-  Linking,
   TouchableOpacity
 } from 'react-native'
 
@@ -11,6 +10,8 @@ import { useNavigation } from '@react-navigation/native'
 import { AppStackNavigatorRoutesProps } from '@routes/app.routes'
 
 import { SpotifyLogo } from 'phosphor-react-native'
+
+import { handleOpenLink } from '@utils/linkUtils'
 
 import { Card } from '@components/Card'
 import { Header } from '@components/Header'
@@ -22,14 +23,6 @@ export function Home() {
   const trailers = database.trailers
   const synopsisFirstParagraph = database.synopsis[0]
   const actors = database.actors
-
-  async function handleOpenLink(urlLink: string) {
-    const supportedLink = await Linking.canOpenURL(urlLink)
-
-    if (supportedLink) {
-      Linking.openURL(urlLink)
-    }
-  }
 
   return (
     <ScrollView
