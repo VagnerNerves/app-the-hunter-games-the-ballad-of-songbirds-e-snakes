@@ -160,6 +160,12 @@ export function Home() {
             </Text>
           </TouchableOpacity>
         </View>
+
+        <View className="items-center">
+          <Text className="font-robotoBold text-xl text-woodbark-400">
+            LIONSGATE
+          </Text>
+        </View>
       </View>
     </ScrollView>
   )
