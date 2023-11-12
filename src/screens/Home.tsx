@@ -10,6 +10,8 @@ import {
 import { useNavigation } from '@react-navigation/native'
 import { AppStackNavigatorRoutesProps } from '@routes/app.routes'
 
+import { SpotifyLogo } from 'phosphor-react-native'
+
 import { Card } from '@components/Card'
 import { Header } from '@components/Header'
 import { database } from '@database/database'
@@ -140,6 +142,23 @@ export function Home() {
               gap: 12
             }}
           />
+        </View>
+
+        <View className="p-6">
+          <TouchableOpacity
+            style={{ gap: 22 }}
+            className="border-2 border-woodbark-400 rounded-xl py-[42px] px-4  flex-row items-center justify-center"
+            onPress={() =>
+              handleOpenLink(
+                'https://open.spotify.com/playlist/37i9dQZF1DWT3BGkpbwZZs'
+              )
+            }
+          >
+            <SpotifyLogo weight="bold" size={42} color="#FBF9EB" />
+            <Text className="font-robotoBold text-base text-woodbark-50 flex-1">
+              Ouça agora a Playlist Oficial do Jogos Vorazes no Spoify
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
