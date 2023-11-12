@@ -17,6 +17,12 @@ module.exports = {
           900: '#643B1F',
           950: '#251309'
         }
+      },
+      fontFamily: {
+        robotoRegular: ['Roboto_400Regular', 'sans-serif'],
+        robotoBold: ['Roboto_700Bold', 'sans-serif'],
+        bgLight: ['BankGothic_Light', 'sans-serif'],
+        bgMedium: ['BankGothic_Medium', 'sans-serif']
       }
     }
   },
