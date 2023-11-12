@@ -1,14 +1,20 @@
+import { Text, View, ScrollView, FlatList, Linking } from 'react-native'
+
 import { Card } from '@components/Card'
 import { Header } from '@components/Header'
-import {
-  Text,
-  View,
-  ScrollView,
-  TouchableOpacity,
-  FlatList
-} from 'react-native'
+import { database } from '@database/database'
 
 export function Home() {
+  const trailers = database.trailers
+
+  async function handleOpenLink(urlLink: string) {
+    const supportedLink = await Linking.canOpenURL(urlLink)
+
+    if (supportedLink) {
+      Linking.openURL(urlLink)
+    }
+  }
+
   return (
     <ScrollView showsVerticalScrollIndicator={false} className="flex-1">
       <Header image={require('../assets/images/header/poster.png')} />
@@ -42,6 +48,32 @@ export function Home() {
             </Text>
             <View className="flex-1 h-[1px] bg-woodbark-600" />
           </View>
+        </View>
+
+        <View style={{ gap: 12 }}>
+          <Text className="mx-6 font-robotoBold text-xl text-woodbark-400">
+            TRAILERS
+          </Text>
+
+          <FlatList
+            data={trailers}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => (
+              <Card
+                width={304}
+                height={171}
+                image={item.pathImage}
+                onPress={() => handleOpenLink(item.urlVideo)}
+              />
+            )}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+              paddingLeft: 24,
+              paddingRight: 24,
+              gap: 12
+            }}
+          />
         </View>
       </View>
     </ScrollView>
