@@ -1,11 +1,24 @@
-import { Text, View, ScrollView, FlatList, Linking } from 'react-native'
+import {
+  Text,
+  View,
+  ScrollView,
+  FlatList,
+  Linking,
+  TouchableOpacity
+} from 'react-native'
+
+import { useNavigation } from '@react-navigation/native'
+import { AppStackNavigatorRoutesProps } from '@routes/app.routes'
 
 import { Card } from '@components/Card'
 import { Header } from '@components/Header'
 import { database } from '@database/database'
 
 export function Home() {
+  const navigation = useNavigation<AppStackNavigatorRoutesProps>()
+
   const trailers = database.trailers
+  const synopsisFirstParagraph = database.synopsis[0]
 
   async function handleOpenLink(urlLink: string) {
     const supportedLink = await Linking.canOpenURL(urlLink)
@@ -16,7 +29,11 @@ export function Home() {
   }
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} className="flex-1">
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      className="flex-1"
+      contentContainerStyle={{ paddingBottom: 64 }}
+    >
       <Header image={require('../assets/images/header/poster.png')} />
 
       <View style={{ gap: 46 }}>
@@ -74,6 +91,28 @@ export function Home() {
               gap: 12
             }}
           />
+        </View>
+
+        <View style={{ gap: 12 }} className="mx-6">
+          <Text className="font-robotoBold text-xl text-woodbark-400">
+            SINOPSE E PERSONAGENS
+          </Text>
+          <TouchableOpacity
+            style={{ gap: 12 }}
+            onPress={() => navigation.navigate('synopsis')}
+          >
+            <Text
+              className="font-robotoRegular text-base text-woodbark-50"
+              numberOfLines={4}
+            >
+              {synopsisFirstParagraph}
+            </Text>
+            <View className="flex-1 flex-row justify-end">
+              <Text className="font-robotoBold text-xs underline text-woodbark-600">
+                Saiba Mais
+              </Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
