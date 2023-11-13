@@ -9,7 +9,7 @@ interface CardProps {
 export function Card({ width, height, image, onPress }: CardProps) {
   return (
     <TouchableOpacity
-      className="bg-black rounded-xl overflow-hidden"
+      className="rounded-xl overflow-hidden"
       style={{ width: width, height: height }}
       onPress={onPress}
     >
