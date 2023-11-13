@@ -26,7 +26,11 @@ The project is developed in React Native with Expo, and it is an app for informa
 
 ## 🎥 Implementation Video
 
-In the GitHub edit, drag the video that it already puts on github itself.
+
+
+https://github.com/VagnerNerves/app-the-hunter-games-the-ballad-of-songbirds-e-snakes/assets/40831841/33930f0e-341f-4c20-8c74-3dee3cd8e98e
+
+
 
 ## 🎨 Layout
 
